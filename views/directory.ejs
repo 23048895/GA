@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/ico" href="/Logo.png">
+    <title>Directory - HawkerHub</title>
+    <style>
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .directory-container {
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+        .location {
+            margin-bottom: 40px;
+        }
+        .location h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .map-iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/navbar', { username: username }) %>
+    <div class="container directory-container">
+        <h1>Directory of the Hawker Centers Listed in HawkerHub</h1>
+        <div class="mb-4">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search for a hawker center..." onkeyup="filterHawkers()">
+        </div>
+        <div class="location" data-name="pioneer mrt hawker center">
+            <h2>Pioneer MRT Hawker Center - Kimly Coffeeshop</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d498.5914547551234!2d103.69675772656538!3d1.337279616421926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da0f902cead055%3A0x182de7aeb6858ceb!2sKimly%20Coffeeshop!5e0!3m2!1sen!2smy!4v1720856039610!5m2!1sen!2smy" class="map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p>Preorder delicious food from the Pioneer MRT Hawker center.</p>
+        </div>
+        <div class="location" data-name="pioneer mall koufu">
+            <h2>Pioneer Mall Koufu</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7236907040683!2d103.69255237546564!3d1.3421609581342453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da0f96da6b2995%3A0xa4203b8094e791ff!2sKoufu%20(Pioneer%20Mall)!5e0!3m2!1sen!2smy!4v1720857371766!5m2!1sen!2smy" class="map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p>Enjoy a variety of cuisines from Pioneer Mall Koufu.</p>
+        </div>
+        <div class="location" data-name="malaysia boleh jurong point">
+            <h2>Malaysia Boleh - Jurong Point</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d705.114262112994!2d103.70444858071349!3d1.3391415631717398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da0f9327eba59b%3A0xb43502665ac8bf5d!2sMalaysia%20Boleh*21%20%40%20Jurong%20Point!5e0!3m2!1sen!2smy!4v1720856282654!5m2!1sen!2smy" class="map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p>Savor Malaysian delights from Malaysia Boleh at Jurong Point.</p>
+        </div>
+    </div>
+    <footer class="footer text-center">
+        <div class="container">
+            <p>&copy; 2024 HawkerHub. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        function filterHawkers() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const locations = document.querySelectorAll('.location');
+
+            locations.forEach(location => {
+                const name = location.getAttribute('data-name').toLowerCase();
+                if (name.includes(input)) {
+                    location.style.display = '';
+                } else {
+                    location.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

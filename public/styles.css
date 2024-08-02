@@ -1,0 +1,23 @@
+body {
+    background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #85FFBD;
+}
+
+.custom-navbar {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.custom-navbar .nav-link {
+    font-family: 'Acme';
+    font-size: 22px;
+    color: rgb(74, 59, 59); /* Change link color */
+    transition: color 0.3s ease; /* Add transition for smooth color change */
+}
+.custom-navbar .nav-link:hover {
+    color: lightgreen !important;
+}
+
+

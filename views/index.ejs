@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/ico" href="/Logo.png">
+    <title>HawkerHub's HomePage</title>
+    <style>
+        body {
+            font-family: 'Acme', sans-serif;
+        }
+        .hero {
+            background-image: url('/food1.jpg'); /* Add your background image path here */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 107vh;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero .container {
+            background: rgba(0, 0, 0, 0.5); /* Adjust the darkness of the overlay */
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.5rem;
+        }
+        .about {
+            position: relative;
+            text-align: center;
+            color: white;
+            margin-top: 50px; /* Add space at the top */
+        }
+
+        .aboutus {
+            text-align: center;
+        }
+        .about img {
+            width: 100%;
+            height: auto;
+        }
+        .about .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.5); /* Adjust the darkness of the overlay */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .feature {
+            padding: 60px 0;
+        }
+        .feature img {
+            width: 100px; /* Adjust as needed */
+            height: 100px; /* Adjust as needed */
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+        .carousel-inner img {
+            width: 100%;
+            height: 500px;
+            object-fit:cover;
+        }
+
+        .carousel-caption h5,
+        .carousel-caption p {
+            color: white;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/navbar', { username: username }) %>
+    <div class="hero">
+        <div class="container">
+            <h1>Welcome to HawkerHub</h1>
+            <p>Your gateway to Singapore's iconic hawker culture</p>
+            <p>Sign up now to pre-order food that are listed on HawkerHub!</p>
+            <a href="/preorder?username=<%= username %>&money=<%= money %>" class="btn btn-primary btn-lg">Explore Now</a>
+        </div>
+    </div>
+
+    <section class="about">
+        <img src="/hawker.gif" alt="About HawkerHub"> <!-- Add your background image path here -->
+        <div class="text">
+            <h2>HAWKER FOODS MADE BRYAN TO DO IT</h2>
+            <p>A Singaporean that craves for specifically Hawker Foods, Bryan Khoo embarked on this journey to get the best out of all the hawker centers without waiting for the queue. He asked himself why is there is no option of pure hawker food website that can preorder and save the queue time in Singapore. From there, he took the opportunity to create a website that enables Singaporeans regardless of age to get good Hawker Foods!</p>
+        </div>
+    </section>
+
+    <section class="feature text-center">
+        <div class="container">
+            <h2>Check out the hawker centers specifically selected by HawkerHub!</h2>
+            <div id="hawkerCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/pioneermrt1.jpg" class="d-block w-100" alt="Pioneer MRT">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Pioneer MRT Hawker Center - Kimly Coffee Shop</h5>
+                            <p>Kimly Limited is one of the largest traditional coffee shop operators in Singapore.
+                                The Group operates and manages an extensive network of coffee shops, food courts and industrial canteens. It also operates a network of food stalls, restaurants and confectionery shops comprising : Kimly Mixed Rice, Kimly Dim Sum, Kimly Seafood “Zi Char”, Tenderfresh Group and Tonkichi</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/koufu1.jpg" class="d-block w-100" alt="Pioneer Mall Koufu">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Pioneer Mall Koufu</h5>
+                            <p>Koufu is a well-established brand name in the hearts of many households. It is a symbol of quality, which also reflects an entrepreneur’s vision and determination. Koufu has been enhancing its efforts to preserve the unique Singaporean coffee shop culture amidst the challenges and rapid changes in our local food and beverage industry. </p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/malaysiaboleh.jpg" class="d-block w-100" alt="Malaysia Boleh - Jurong Point">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Malaysia Boleh - Jurong Point</h5>
+                            <p>Convening some of the best Malaysian street hawker fare under one roof, Malaysia Boleh! is the go-to dining destination for those who want a taste of Malaysia without crossing the Straits.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#hawkerCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#hawkerCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="feature text-center">
+        <div class="container">
+            <h2>Key Features of HawkerHub</h2>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <h3>User Profiles</h3>
+                    <img src="https://static1.straitstimes.com.sg/s3fs-public/articles/2021/03/21/amandachong.jpg?VersionId=7z8m0szLS3eO2AA3CI.E7SX0ZY_wyHaP" alt="User Profiles">
+                    <p>Create and manage your personal profile username and your email if needed!</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Hawker Directory</h3>
+                    <img src="https://i.guim.co.uk/img/media/971fb793bc9f89e145ec272ca5414acd5de0a1fe/0_448_6720_4032/master/6720.jpg?width=700&quality=85&auto=format&fit=max&s=817f279158134bb64317f4f4fa00d513" alt="Hawker Directory">
+                    <p>Browse and search for hawker centers and its diverse selection of foods that a hawker center offers.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Ratings</h3>
+                    <img src="https://st3.depositphotos.com/2024219/31793/i/450/depositphotos_317939792-stock-photo-young-woman-isolated-yellow-background.jpg" alt="Reviews and Ratings">
+                    <p>Give or modify the ratings for your favorite foods.</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <h3>Pre-Order and Pick-Up</h3>
+                    <img src="/pickup.jpg" alt="Pre-Order and Pick-Up">
+                    <p>Conveniently place orders for you to pick-up on the spot.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Comprehensive Listings</h3>
+                    <img src="https://dictionary.cambridge.org/images/thumb/check_noun_002_06440.jpg?version=6.0.25" alt="Comprehensive Listings">
+                    <p>Detailed information about hawker centers.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Top up/ withdrawal easily</h3>
+                    <img src="https://images-cdn4.welcomesoftware.com/Zz1hYWI3YjczNDdjODYxMWVlODIxNTNlMjYxMDdhMmNmNw==?width=584&height=390" alt="Secure Payment">
+                    <p>One click to topup and one click to withdraw in HawkerHub!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <p>&copy; 2024 HawkerHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

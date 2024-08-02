@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/ico" href="/Logo.png">
+    <title>Contact HawkerHub</title>
+    <style>
+      .form-image {
+        width: 600px;
+        height: 550px;
+      }
+      .footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+  <%- include('partials/navbar', { username: username }) %>
+    <!-- Bootstrap 5 Contact Form Snippet -->
+
+<div class="container-fluid px-5 my-5">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        <div class="card border-0 rounded-3 shadow-lg overflow-hidden">
+          <div class="card-body p-0">
+            <div class="row g-0">
+              <div class="col-sm-6 d-none d-sm-block bg-image">
+                <img src="https://media.istockphoto.com/id/1458164457/photo/businessman-using-laptop-and-smartphone-with-contact-icons-on-virtual-screen-searching-web.jpg?s=612x612&w=0&k=20&c=MGgwv8LPiylmsFqbT2w2lfY2qTpBmnprS9O3oMjkkS8=" class="form-image"></img>
+              </div>
+              <div class="col-sm-6 p-4">
+                <div class="text-center">
+                  <div class="h3 fw-light">Contact Us in HawkerHub!</div>
+                  <p class="mb-4 text-muted">Any problems or Inquiries, feel free to contact here!</p>
+                </div>
+  
+
+  
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+  
+                  <!-- Name Input -->
+                  <div class="form-floating mb-3">
+                    <input class="form-control" id="name" type="text" placeholder="Name" data-sb-validations="required" />
+                    <label for="name">Name</label>
+                    <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                  </div>
+  
+                  <!-- Email Input -->
+                  <div class="form-floating mb-3">
+                    <input class="form-control" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required,email" />
+                    <label for="emailAddress">Email Address</label>
+                    <div class="invalid-feedback" data-sb-feedback="emailAddress:required">Email Address is required.</div>
+                    <div class="invalid-feedback" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
+                  </div>
+  
+                  <!-- Message Input -->
+                  <div class="form-floating mb-3">
+                    <textarea class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required"></textarea>
+                    <label for="message">Message</label>
+                    <div class="invalid-feedback" data-sb-feedback="message:required">Message is required.</div>
+                  </div>
+  
+                  <!-- Submit success message -->
+                  <div class="d-none" id="submitSuccessMessage">
+                    <div class="text-center mb-3">
+                      <div class="fw-bolder">Form submission successful!</div>
+                    </div>
+                  </div>
+  
+                  <!-- Submit error message -->
+                  <div class="d-none" id="submitErrorMessage">
+                    <div class="text-center text-danger mb-3">Error sending message!</div>
+                  </div>
+  
+                  <!-- Submit button -->
+                  <div class="d-grid">
+                    <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button>
+                  </div>
+                </form>
+                <!-- End of contact form -->
+  
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- CDN Link to SB Forms Scripts -->
+  <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+  <footer class="footer text-center">
+    <div class="container">
+        <p>&copy; 2024 HawkerHub. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-sm navbar-dark custom-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand">
+            <img src="/Logo.png" alt="logo" style="width:150px;">
+        </a>
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item mx-3">
+                <a class="nav-link" href="/?username=<%= username %>&money=<%= money %>">Home</a>
+            </li>
+            <li class="nav-item mx-3">
+                <a class="nav-link" href="/contact?username=<%= username %>&money=<%= money %>">Contact</a>
+            </li>
+            <li class="nav-item mx-3">
+                <a class="nav-link" href="/preorder?username=<%= username %>&money=<%= money %>">Pre-Order</a>
+            </li>
+            <li class="nav-item mx-3">
+                <a class="nav-link" href="/directory?username=<%= username %>&money=<%= money %>">Directory</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <% if (username) { %>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" href="/profile?username=<%= username %>&money=<%= money %>">Welcome, <%= username %></a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" href="/balance?username=<%= username %>&money=<%= money %>">Balance: $<%= money %></a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" href="/cart?username=<%= username %>&money=<%= money %>">Cart</a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            <% } else { %>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" href="/signup">Signup</a>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</nav>

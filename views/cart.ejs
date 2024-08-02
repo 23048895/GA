@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles.css">
+    <title>Cart - HawkerHub</title>
+    <link rel="icon" type="image/ico" href="/Logo.png">
+    <style>
+        body {
+            font-family: 'Acme', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/navbar', { username: username, money: money }) %>
+
+    <div class="container">
+        <br>
+        <div class="text-center"><h2>Cart</h2></div>
+        <br>
+        <% if (cart.length > 0) { %>
+            <table class="table table-hover small text-center">
+                <thead>
+                    <tr>
+                        <th width="100">Food Name</th>
+                        <th width="100">Food Image</th>
+                        <th width="50">Price</th>
+                        <th width="50">Quantity</th>
+                        <th width="50">Total</th>
+                        <th width="50">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% cart.forEach(food => { %>
+                        <tr>
+                            <td><%= food.name %></td>
+                            <td><img src="/<%= food.image %>" width="150px"></td>
+                            <td>$<%= parseFloat(food.price).toFixed(2) %></td>
+                            <td>
+                                <form action="/update_cart_quantity/<%= food.hawker_center %>/<%= food.id %>" method="POST" style="display:inline;">
+                                    <input type="hidden" name="username" value="<%= username %>">
+                                    <input type="hidden" name="money" value="<%= money %>">
+                                    <input type="number" name="quantity" value="<%= food.quantity %>" min="1" class="form-control" style="width: 60px; display: inline;">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </form>
+                            </td>
+                            <td>$<%= (parseFloat(food.price) * food.quantity).toFixed(2) %></td>
+                            <td>
+                                <form action="/remove_from_cart" method="POST" style="display:inline;">
+                                    <input type="hidden" name="username" value="<%= username %>">
+                                    <input type="hidden" name="money" value="<%= money %>">
+                                    <input type="hidden" name="foodId" value="<%= food.id %>">
+                                    <input type="hidden" name="hawker_center" value="<%= food.hawker_center %>">
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to remove this item from your cart?')">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <div class="text-end">
+                <a href="/payment?username=<%= username %>&money=<%= money %>" class="btn btn-primary">Proceed to Payment</a>
+            </div>
+        <% } else { %>
+            <p>Your cart is empty.</p>
+        <% } %>
+        <a href="/preorder?username=<%= username %>&money=<%= money %>" class="btn btn-secondary">Back</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
