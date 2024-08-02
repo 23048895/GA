@@ -25,10 +25,14 @@ const upload = multer({ storage });
 
 // Database connection
 const db = mysql2.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'hawkerhub'
+//     host: 'localhost',
+//     user: 'root',
+//    password: '',
+//     database: 'hawkerhub'
+    host: 'mysql-bryank.alwaysdata.net',
+    user: 'bryank',
+    password: 'RPIsthebest1234!',
+    database: 'bryank_hawkerhub'
 });
 
 // Connect to database
